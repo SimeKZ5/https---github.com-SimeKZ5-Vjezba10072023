@@ -1,20 +1,26 @@
-import "./App.css";
-import odvojene from "./funkcija.jsx";
+import React, { useState } from "react";
+import Komponenta1 from "./components/funkcija";
+import Komponenta2 from "./components/funkcija copy";
+
+const ToggleButton = ({ toggleCallback }) => {
+  const handleClick = () => {
+    toggleCallback();
+  };
+
+  return <button onClick={handleClick}>Toggle</button>;
+};
 
 function App() {
-  const string1 = "Prvi const";
-  const string2 = "Druga varijabla";
+  const [uvjet, setUvjet] = useState(true);
+
+  const toggleUvjet = () => {
+    setUvjet(!uvjet);
+  };
 
   return (
     <div>
-      <p>{string1}</p>
-      <p>{string2}</p>
-      <p>
-        {string1} {string2}
-      </p>
-      <p>{`${string1} ${string2}`}</p>
-
-      <p>{odvojene()}</p>
+      {uvjet ? <Komponenta1 /> : <Komponenta2 />}
+      <ToggleButton toggleCallback={toggleUvjet} />
     </div>
   );
 }
