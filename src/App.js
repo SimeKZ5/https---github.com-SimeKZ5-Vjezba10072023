@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import odvojene from "./funkcija.jsx";
 
 function App() {
+  const string1 = "Prvi const";
+  const string2 = "Druga varijabla";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>{string1}</p>
+      <p>{string2}</p>
+      <p>
+        {string1} {string2}
+      </p>
+      <p>{`${string1} ${string2}`}</p>
+
+      <p>{odvojene()}</p>
     </div>
   );
 }
